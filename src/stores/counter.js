@@ -1,12 +1,17 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { Z } from 'vitest/dist/chunks/reporters.C4ZHgdxQ'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+export const useStore = defineStore('storeId',  {
+  state: () => {
+    return{
+      point: null
+    }
+  },
+  getters: {
+
+  },
+  actions: {
+    
   }
-
-  return { count, doubleCount, increment }
 })

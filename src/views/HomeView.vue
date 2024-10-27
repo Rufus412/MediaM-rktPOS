@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import PointOfSale from '../components/PointOfSale.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="w-full">
+    
+    <PointOfSale class="w-full"/>
   </main>
 </template>
