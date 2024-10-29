@@ -7,11 +7,7 @@
         
         <img class="" src="../assets/logo.png" >
         <div class="flex w-[30%] justify-center">
-            <button class="w-12 h-10 bg-[#FCFCFC] mx-4 rounded-md">WOO</button>
-            <button class="w-12 h-10 bg-[#FCFCFC] mx-4  rounded-md">WOO</button>
-            <button class="w-12 h-10 bg-[#FCFCFC] mx-4 rounded-md">WOO</button>
         </div>
-        <a class="text-yellow-400">MEDIETEKNIK</a>
         
 
     </div>
