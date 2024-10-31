@@ -6,7 +6,7 @@ import Header from './components/Header.vue';
 <template>
       <div class="absolute  h-full w-full ">
             <Header class="relative"></Header>
-            <RouterView class=" relative"/>
+            <RouterView class=" relative h-[90%] class px-4"/>
       </div>
 </template>
 

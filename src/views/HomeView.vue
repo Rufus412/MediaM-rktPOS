@@ -1,11 +1,10 @@
 <script setup>
-import PointOfSale from '../components/PointOfSale.vue'
-import SignIn from '@/components/SignIn.vue';
+import MainMenu from '@/components/MainMenu.vue';
 </script>
 
 <template>
   <main class="w-full">
     
-    <SignIn class="w-full"/>
+    <MainMenu class="w-full"/>
   </main>
 </template>

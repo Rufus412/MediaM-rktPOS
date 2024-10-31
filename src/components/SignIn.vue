@@ -1,11 +1,18 @@
 <script setup>
 //import axios from 'axios';
-import { callBackend } from '../helpers/axiosHelper'
+import { postToBackend } from '../helpers/axiosHelper'
+import { useStore } from '@/stores/counter';
+import { useRouter } from 'vue-router';
 let a
-let password
+let inputPassword
+const store = useStore()
+const router = useRouter()
 async function login(){
-    a = await callBackend('signIn', password)
-    console.log(password)
+    a = await postToBackend('signIn', {password: inputPassword, epoch: Date.now()})
+    if(a.status == 'success' && a.token != '') {
+        router.push({name: 'main_menu'})
+    }
+    else console.log("wrong password")
 }
 
 </script>
@@ -19,13 +26,13 @@ async function login(){
                     </label>
                 </div>
                 <div class="bg-black w-fit ml-3">
-                    <input class="border-1 m-[1px] border-dashed border-black shadow-md" v-model="password" type="password" id="pass" name="password" required />
+                    <input class="border-1 m-[1px] border-dashed border-black shadow-md" v-model="inputPassword" type="password" id="pass" name="password" required />
                 </div>
             </div>
             <div>
                 <button @click="login" class="bg-[#06D6A0] p-1 text-md rounded-md shadow-md mt-2" type="button" >Login</button>
             </div>
-            <h1>{{ password }}</h1>
+            <h1>{{ inputPassword }}</h1>
         </div>
     </div>
 </template>
