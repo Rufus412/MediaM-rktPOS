@@ -7,7 +7,8 @@ export const useStore = defineStore('storeId',  {
       point: null,
       api: {
         sessionToken: ""
-      }
+      },
+      allPatches: []
     }
   },
   getters: {

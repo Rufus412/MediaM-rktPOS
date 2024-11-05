@@ -3,13 +3,14 @@
 import { postToBackend } from '../helpers/axiosHelper'
 import { useStore } from '@/stores/counter';
 import { useRouter } from 'vue-router';
-let a
 let inputPassword
 const store = useStore()
 const router = useRouter()
 async function login(){
-    a = await postToBackend('signIn', {password: inputPassword, epoch: Date.now()})
-    if(a.status == 'success' && a.token != '') {
+    let r = await postToBackend('signIn', {password: inputPassword, epoch: Date.now()})
+    if(r.status == 'success' && r.guid != '') {
+        store.api.sessionToken = r.guid
+        console.log(store.api.sessionToken)
         router.push({name: 'main_menu'})
     }
     else console.log("wrong password")
