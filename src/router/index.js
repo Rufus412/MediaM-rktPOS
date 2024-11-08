@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import SignInVue from '../views/SignInVue.vue'
 import MainMenu from '@/components/MainMenu.vue'
 import AddPatchView from '@/views/AddPatchView.vue'
-import EditPatchView from '@/views/EditPatchView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,17 +15,6 @@ const router = createRouter({
       path: '/home',
       name: 'main_menu',
       component: MainMenu
-    },
-    
-    {
-      path: '/add_patch',
-      name: 'add_patch',
-      component: AddPatchView
-    },
-    {
-      path: '/edit_patch',
-      name: 'edit_patch',
-      component: EditPatchView
     },
     {
       path: '/about',

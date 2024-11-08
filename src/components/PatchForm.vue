@@ -6,25 +6,34 @@ import { useRouter } from 'vue-router';
 
 <script>
 export default {
-  data() {
-    return {
-      formData: {
+  props: {
+    lable: {
+      type: String,
+      default: ''
+    },
+    formData: {
+      type: JSON,
+      default: {
+        Item_Number: 0,
         Name: '',
         Description: '',
         Quantity: null,
         Price: null,
         item_image_ref: '',
       }
+    },
+    mode: {
+      type: String
+    }
+  },
+  data() {
+    return {
     };
   },
   methods: {
     handleSubmit() {
-        const store = useStore()
-        const router = useRouter()
         console.log(this.formData);
-        // Handle form submission logic here
-        postToBackend('add_patch', {guid: store.api.sessionToken, item_name: this.formData.Name, item_description: this.formData.Description, item_quantity: this.formData.Quantity, item_price: this.formData.Price, item_image_ref: this.formData.item_image_ref })
-        this.$router.push({name: 'main_menu'})
+        this.$emit('test', {data: this.formData, mode: this.mode})
     }
   }
 };
@@ -33,7 +42,7 @@ export default {
 <template>
   <div class="flex justify-center items-center min-h-screen bg-gray-50">
     <div class="w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
-      <h2 class="text-2xl font-semibold text-gray-700 mb-6">New Patch</h2>
+      <h2 class="text-2xl font-semibold text-gray-700 mb-6">{{ lable }}</h2>
       <form @submit.prevent="handleSubmit">
         <!-- Input Group 1 -->
         <div class="mb-4">
