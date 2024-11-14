@@ -116,25 +116,27 @@ export default {
 </script>
 
 <template>
-    <div v-if="state == 0" class="h-[90%] w-full">
-        <div class="h-full grid grid-rows-5 grid-cols-5 gap-3 pt-4">
-            <div class="relative col-span-1 row-start-1 rounded-md shadow-md hover:bg-gray-100" @click="add_patch()">
-                <div class="text-center top-[50%] transformUp relative">
-                    Add Patch
+    <div>
+        <div v-if="state == 0" class="h-[90%] w-full">
+            <div class="h-full grid grid-rows-5 grid-cols-5 gap-3 pt-4">
+                <div class="relative col-span-1 row-start-1 rounded-md shadow-md hover:bg-gray-100" @click="add_patch()">
+                    <div class="text-center top-[50%] transformUp relative">
+                        Add Patch
+                    </div>
                 </div>
-            </div>
-            <div class="relative col-span-1 row-start-2 rounded-md shadow-md hover:bg-gray-100" @click="edit_patch()">
-                <div class="text-center top-[50%] transformUp relative">
-                    Edit Patch
+                <div class="relative col-span-1 row-start-2 rounded-md shadow-md hover:bg-gray-100" @click="edit_patch()">
+                    <div class="text-center top-[50%] transformUp relative">
+                        Edit Patch
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div v-if="state == 1">
-        <PatchForm @test="returnToMain" :formData="patchVals" :lable="formLable" :mode="mode"/>
-    </div>
-    <div v-if="state == 2">
-        <DisplayPatches @selected="editSelected" :allPatches="allPatches"/>
+        <div v-if="state == 1">
+            <PatchForm @test="returnToMain" :formData="patchVals" :lable="formLable" :mode="mode"/>
+        </div>
+        <div v-if="state == 2">
+            <DisplayPatches @selected="editSelected" :allPatches="allPatches"/>
+        </div>
     </div>
     
 </template>

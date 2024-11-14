@@ -1,9 +1,14 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { useStore } from '@/stores/counter';
 
 const router = useRouter()
 
 function goToHome() {
+    const store = useStore()
+    if (store.sessionToken != "") {
+        router.push({name: 'home'})
+    }
     router.push({name: 'sign_in'})
 }
 </script>
